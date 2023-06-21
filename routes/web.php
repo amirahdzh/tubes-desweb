@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//route kalau misal perlu tampilin semua game
+Route::get('/', [GameController::class, 'index'])->name('games.index');
+
+//route ambil game berdasarkan type
+Route::get('/{type}', [GameController::class, 'showByType'])->name('games.showByType');
+
+
+

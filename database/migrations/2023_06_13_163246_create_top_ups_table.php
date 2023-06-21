@@ -13,7 +13,7 @@ class CreateTopUpsTable extends Migration
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')->references('id')->on('games');
             $table->integer('nominal');
-            $table->decimal('price', 8, 2);
+            $table->integer('price');
             $table->timestamps();
         });
     }

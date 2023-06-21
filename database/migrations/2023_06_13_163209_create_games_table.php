@@ -10,9 +10,12 @@ class CreateGamesTable extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('type_id');
+            $table->string('slug')->unique();
             $table->string('name');
             $table->text('description');
             $table->string('image');
+            $table->string('currency');
             $table->timestamps();
         });
     }
