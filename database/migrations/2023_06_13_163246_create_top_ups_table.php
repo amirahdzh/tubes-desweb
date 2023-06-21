@@ -10,8 +10,7 @@ class CreateTopUpsTable extends Migration
     {
         Schema::create('top_ups', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('game_id');
-            $table->foreign('game_id')->references('id')->on('games');
+            $table->foreignId('game_id');
             $table->integer('nominal');
             $table->integer('price');
             $table->timestamps();

@@ -9,9 +9,10 @@ class GameController extends Controller
 {
     public function index() // index buat ambil semua game,
     {
+        $title = 'Home';
         $games = Game::all();
 
-        return view('home', compact('games'));
+        return view('home', compact('games'))->with('title', $title);
     }
 
     public function showByType($type)
@@ -28,5 +29,13 @@ class GameController extends Controller
         })->get();
 
         return view('type', compact('games'))->with('title', $title);
+    }
+
+    public function show($slug)
+    {
+        $game = Game::where('slug', $slug)->firstOrFail();
+        $topUps = $game->topUps;
+
+        return view('detailGame', compact('game', 'topUps'));
     }
 }

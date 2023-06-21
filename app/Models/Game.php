@@ -12,16 +12,21 @@ class Game extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'type_id', 
-        'slug', 
-        'name', 
-        'description', 
-        'image', 
+        'type_id',
+        'slug',
+        'name',
+        'description',
+        'image',
         'currency'
     ];
 
     public function type()
     {
         return $this->belongsTo(Type::class);
+    }
+
+    public function topUps()
+    {
+        return $this->hasMany(TopUp::class);
     }
 }

@@ -13,6 +13,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $game->name }}</h5>
                 <p class="card-text">{{ $game->description }}</p>
+                <a href="{{ route('games.show', $game->slug) }}" class="btn btn-primary">View Details</a>
                 <!-- Tambahkan informasi lainnya sesuai kebutuhan -->
             </div>
         </div>

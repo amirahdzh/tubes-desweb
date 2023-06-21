@@ -20,5 +20,10 @@ Route::get('/', [GameController::class, 'index'])->name('games.index');
 //route ambil game berdasarkan type
 Route::get('/{type}', [GameController::class, 'showByType'])->name('games.showByType');
 
+//route buat show detail game
+Route::get('/games/{slug}', [GameController::class, 'show'])->name('games.show');
+
+
+
 
 
