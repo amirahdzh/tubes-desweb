@@ -53,6 +53,7 @@
             <div>
                 <p><span id="summaryNominal">0 {{ $game->currency }}</span></p>
                 <p>Rp. <span id="summaryPrice">0</span></p>
+                <p>Metode Pembayaran: <span id="summaryPaymentMethod"></span></p>
             </div>
             @elseif ($game->form === "ID")
             <div class="mb-3">
@@ -64,6 +65,7 @@
             <div>
                 <p><span id="summaryNominal">0 {{ $game->currency }}</span></p>
                 <p>Rp. <span id="summaryPrice">0</span></p>
+                <p>Metode Pembayaran: <span id="summaryPaymentMethod"></span></p>
             </div>
             @elseif ($game->form === "Email")
             <div class="mb-3">
@@ -78,7 +80,6 @@
                 <p>Metode Pembayaran: <span id="summaryPaymentMethod"></span></p>
             </div>
             @endif
-
             <button class="buy-button" onclick="showInvoice('{{ $topUp->nominal }}', '{{ $topUp->price }}', '{{ $pm->name }}')">Beli Sekarang</button>
 
         </form>
