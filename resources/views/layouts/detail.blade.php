@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GameHub | </title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 </head>
 
@@ -14,9 +14,9 @@
   @include('partials.navbar')
   <div class="container">
     <!-- Header -->
-    <div class="header">
-      <img src="{{ $game->image }}" alt="{{ $game->name }}" class="game-image">
-      <h2 class="game-name">{{ $game->name }}</h2>
+    <div class="card detail-header border-0 my-5">
+      <img src="{{ asset('img/'.$game->image) }}" alt="{{ $game->name }}" class="game-image card-img-top rounded-circle">
+      <h2 class="game-name card-title text-center">{{ $game->name }}</h2>
     </div>
 
     <div class="container mt-4">
@@ -27,13 +27,13 @@
             @yield('topup')
 
             <!-- Deskripsi Game Container -->
-            <div class="row mb-4">
+            <div class="row my-4">
               @yield('desc')
             </div>
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="row mb-4">
+          <div class="row mb-3">
             @yield('paymentmethod')
           </div>
           <!-- Form Pembelian Container -->
@@ -44,13 +44,23 @@
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
   </script>
   <script>
-    function selectPaymentMethod(paymentMethod) {
+    let selectedCardPM = null;
+    function selectPaymentMethod(paymentMethod, card) {
+      if (selectedCardPM !== null) {
+        selectedCardPM.classList.remove("selected");
+      }
+
+      if (selectedCardPM !== card) {
+        card.classList.add("selected");
+        selectedCardPM = card;
+      } else {
+        selectedCardPM = null;
+      }
       document.getElementById('selectedPayment').value = paymentMethod;
-      document.getElementById('summaryPaymentMethod').innerText = paymentMethod;
+      document.getElementById('summaryPaymentMethod').textContent = paymentMethod;
     }
     function selectTopUp(nominal, price) {
         // Set selected nominal and price
@@ -60,19 +70,18 @@
         document.getElementById('summaryPrice').innerText = price.toLocaleString('en-ID');
         document.getElementById('summaryNominal').innerHTML = nominal + ' {{ $game->currency }}';
     }
+
     function validateForm() {
-        var email = document.getElementById('email').value;
+      var email = document.getElementById('email').value;
 
-        if (email === '') {
-            alert('Field Email harus diisi');
-            return false;
-        }
+      if (email === '') {
+        alert('Field Email harus diisi');
+        return false;
+      }
 
-        return true;
+      return true;
     }
 
-
-    
   </script>
 
 </body>
