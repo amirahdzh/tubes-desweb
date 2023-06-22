@@ -13,8 +13,6 @@ class CreateInvoicesTable extends Migration
             $table->id();
             $table->string('invoice_no')->unique();
             $table->timestamp('invoice_date')->useCurrent();
-            $table->foreignId('payment_method_id')->nullable();
-            $table->foreignId('topup_id')->nullable();
             $table->enum('payment_status', ['Belum Dibayar', 'Sudah Dibayar'])->default('Belum Dibayar');
             $table->timestamps();
         });

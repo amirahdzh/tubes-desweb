@@ -10,7 +10,7 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('invoice_id');
+            $table->string('invoice_no')->nullable();
             $table->timestamp('transaction_date')->useCurrent();
             $table->timestamps();
         });

@@ -28,6 +28,8 @@ Route::get('/games/{slug}', [GameController::class, 'show'])->name('games.show')
 
 Route::post('/games/{slug}/{token}', [InvoiceController::class, 'show'])->name('invoice');
 
+Route::post('/{invoiceNo}/mark-as-paid', [InvoiceController::class, 'markAsPaid'])->name('mark-as-paid');
+
 
 
 
