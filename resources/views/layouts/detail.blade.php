@@ -31,29 +31,61 @@
               @yield('desc')
             </div>
           </div>
-
-          <div class="col-lg-4">
-            <!-- Form Pembelian Container -->
-            <div class="row mb-4">
-              @yield('form')
-            </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="row mb-4">
+            @yield('paymentmethod')
+          </div>
+          <!-- Form Pembelian Container -->
+          <div class="row mb-4">
+            @yield('form')
           </div>
         </div>
       </div>
-
-      {{-- @yield('container') --}}
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
-    <script>
-      function selectTopUp(nominal, price) {
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+  </script>
+  <script>
+    function selectPaymentMethod(paymentMethod) {
+        document.getElementById('summaryPaymentMethod').textContent = paymentMethod;
+    }
+    function selectTopUp(nominal, price) {
         document.getElementById('selectedNominal').value = nominal;
         document.getElementById('selectedPrice').value = price;
         document.getElementById('summaryPrice').innerText = price.toLocaleString('en-ID');
         document.getElementById('summaryNominal').innerHTML = nominal + ' {{ $game->currency }}';
+    }
+    function validateForm() {
+        var email = document.getElementById('email').value;
 
-      }
-    </script>
+        if (email === '') {
+            alert('Field Email harus diisi');
+            return false;
+        }
+
+        return true;
+    }
+
+    function showInvoice(nominal, price, paymentMethod) {
+        var selectedNominal = document.getElementById('selectedNominal');
+        var selectedPrice = document.getElementById('selectedPrice');
+        var summaryNominal = document.getElementById('summaryNominal');
+        var summaryPrice = document.getElementById('summaryPrice');
+        var summaryPaymentMethod = document.getElementById('summaryPaymentMethod');
+
+        selectedNominal.value = nominal;
+        selectedPrice.value = price;
+        summaryNominal.innerText = nominal + ' {{ $game->currency }}';
+        summaryPrice.innerText = price;
+        summaryPaymentMethod.innerText = paymentMethod;
+
+        // Tampilkan invoice atau lakukan tindakan lain sesuai kebutuhan
+        // Misalnya, munculkan modal dengan detail invoice
+        // atau redirect pengguna ke halaman invoice
+    }
+  </script>
 </body>
 
 </html>

@@ -36,18 +36,8 @@ class GameController extends Controller
     {
         $game = Game::where('slug', $slug)->firstOrFail();
         $topUps = $game->topUps;
+        $paymentMethods = PaymentMethod::all();
 
-        return view('detailGame', compact('game', 'topUps'));
-    }
-
-    public function paymentMethod(Request $request, $slug, $topup_id, $payment_method_id)
-    {
-        $paymentMethod = PaymentMethod::findOrFail($payment_method_id);
-        $selectedNominal = $request->input('selectedNominal');
-        $selectedPrice = $request->input('selectedPrice');
-
-        $paymentMethods = PaymentMethod::all(); // Ambil semua metode pembayaran
-
-        return view('paymentMethod', compact('selectedNominal', 'selectedPrice', 'paymentMethods'));
+        return view('detailGame', compact('game', 'topUps', 'paymentMethods'));
     }
 }

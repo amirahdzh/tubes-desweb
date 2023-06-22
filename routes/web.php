@@ -24,7 +24,7 @@ Route::get('/{type}', [GameController::class, 'showByType'])->name('games.showBy
 Route::get('/games/{slug}', [GameController::class, 'show'])->name('games.show');
 
 //ini masih error
-Route::get('/games/{slug}/{topup_id}/payment-method', [GameController::class, 'paymentMethod'])->name('payment-method');
+// Route::get('/games/{slug}/{topup_id}/payment-method', [GameController::class, 'paymentMethod'])->name('payment-method');
 
 
 
