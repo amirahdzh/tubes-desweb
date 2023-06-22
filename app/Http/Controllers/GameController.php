@@ -40,4 +40,13 @@ class GameController extends Controller
 
         return view('detailGame', compact('game', 'topUps', 'paymentMethods'));
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('search');
+        $title = 'Search';
+        $games = Game::where('name', 'like', '%' . $query . '%')->get();
+
+        return view('home', ['games' => $games])->with('title', $title);
+    }
 }

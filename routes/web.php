@@ -18,6 +18,8 @@ use App\Http\Controllers\InvoiceController;
 //route kalau misal perlu tampilin semua game
 Route::get('/', [GameController::class, 'index'])->name('games.index');
 
+Route::get('/games/search', [GameController::class, 'search'])->name('games.search');
+
 //route ambil game berdasarkan type
 Route::get('/{type}', [GameController::class, 'showByType'])->name('games.showByType');
 
@@ -25,6 +27,7 @@ Route::get('/{type}', [GameController::class, 'showByType'])->name('games.showBy
 Route::get('/games/{slug}', [GameController::class, 'show'])->name('games.show');
 
 Route::post('/games/{slug}/{token}', [InvoiceController::class, 'show'])->name('invoice');
+
 
 
 

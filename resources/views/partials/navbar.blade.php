@@ -16,8 +16,8 @@
                 </li>
             </ul>
         </div>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex" role="search" action="{{ route('games.search') }}" method="GET">
+            <input class="form-control me-2 rounded-pill" name="search" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success rounded-pill" type="submit">Search</button>
         </form>
     </div>
