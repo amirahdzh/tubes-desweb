@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Game;
+use App\Models\PaymentMethod;
 use App\Models\TopUp;
 use App\Models\Type;
 
@@ -232,6 +233,15 @@ class DatabaseSeeder extends Seeder
             'image' => 'Genshin.png',
             'currency' => 'Diamonds'
         ]);
+
+        PaymentMethod::create([
+          'name' => 'ShopeePay'
+        ]);
+
+        PaymentMethod::create([
+          'name' => 'Gopay'
+        ]);
+
 
         TopUp::factory()->count(100)->create();
 
