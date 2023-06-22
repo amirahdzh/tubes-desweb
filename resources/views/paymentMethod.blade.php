@@ -1,16 +1,17 @@
 @extends('layouts.detail')
 
 @section('topup')
-@foreach ($topUps as $topUp)
+@foreach ($paymentMethods as $pm)
 <div class="col-md-4">
-
-    <div class="card" onclick="selectTopUp({{ $topUp->nominal }}, {{ $topUp->price }})">
+    
+    <div class="card" onclick="selectTopUp({{ $pm->name }})">
         <!-- Card content -->
-        <h4 class="card-title">{{ $topUp->nominal }} {{ $game->currency }}</h4>
+        <h4 class="card-title">{{ $pm->name }}</h4>
+        <img src="{{ $paymentMethod->image }}" alt="{{ $paymentMethod->name }}" class="card-img">
         <p class="card-price">Rp. {{ number_format($topUp->price, 0, ',', '.') }}</p>
         <button class="buy-button">Beli</button>
     </div>
-
+    
 
 </div>
 @endforeach
@@ -29,7 +30,7 @@
 <div class="col">
     <!-- Form content -->
     @if ($game->form === "ID Server")
-    <form action="{{ route('payment-method', ['slug' => $game->slug, 'topup_id' => $topUp->id]) }}" method="GET">
+    <form action="#" method="POST">
         @csrf
         <div class="mb-3">
             <label for="username" class="form-label">ID</label>
@@ -37,7 +38,7 @@
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Server</label>
-            <input type="text" class="form-control" id="password" name="password">
+            <input type="password" class="form-control" id="password" name="password">
         </div>
         <input type="hidden" id="selectedNominal" name="selectedNominal">
         <input type="hidden" id="selectedPrice" name="selectedPrice">
@@ -48,7 +49,7 @@
         <button type="submit" class="btn btn-primary">Beli</button>
     </form>
     @elseif ($game->form === "ID")
-    <form action="{{ route('payment-method', ['slug' => $game->slug, 'topup_id' => $topUp->id]) }}" method="GET">
+    <form action="#" method="POST">
         @csrf
         <div class="mb-3">
             <label for="username" class="form-label">ID</label>
@@ -63,7 +64,7 @@
         <button type="submit" class="btn btn-primary">Beli</button>
     </form>
     @elseif ($game->form === "Email")
-    <form action="{{ route('payment-method', ['slug' => $game->slug, 'topup_id' => $topUp->id]) }}" method="GET">
+    <form action="#" method="POST">
         @csrf
         <div class="mb-3">
             <label for="username" class="form-label">Email</label>

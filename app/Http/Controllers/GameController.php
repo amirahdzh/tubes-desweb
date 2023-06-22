@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -37,5 +38,16 @@ class GameController extends Controller
         $topUps = $game->topUps;
 
         return view('detailGame', compact('game', 'topUps'));
+    }
+
+    public function paymentMethod(Request $request, $slug, $topup_id, $payment_method_id)
+    {
+        $paymentMethod = PaymentMethod::findOrFail($payment_method_id);
+        $selectedNominal = $request->input('selectedNominal');
+        $selectedPrice = $request->input('selectedPrice');
+
+        $paymentMethods = PaymentMethod::all(); // Ambil semua metode pembayaran
+
+        return view('paymentMethod', compact('selectedNominal', 'selectedPrice', 'paymentMethods'));
     }
 }

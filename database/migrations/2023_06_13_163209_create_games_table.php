@@ -17,6 +17,7 @@ class CreateGamesTable extends Migration
             $table->string('image')->nullable();
             $table->string('currency');
             $table->enum('form', ['ID', 'ID Server', 'Email'])->default('ID Server');
+            $table->string('image_cur')->nullable();
             $table->timestamps();
         });
     }

@@ -23,6 +23,11 @@ Route::get('/{type}', [GameController::class, 'showByType'])->name('games.showBy
 //route buat show detail game
 Route::get('/games/{slug}', [GameController::class, 'show'])->name('games.show');
 
+//ini masih error
+Route::get('/games/{slug}/{topup_id}/payment-method', [GameController::class, 'paymentMethod'])->name('payment-method');
+
+
+
 
 
 

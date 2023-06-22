@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+
 use App\Models\Game;
 use App\Models\TopUp;
 use App\Models\Type;
@@ -29,41 +30,117 @@ class DatabaseSeeder extends Seeder
         Type::create([ // type_id = 2
             'name' => 'voucher'
         ]);
-        
+
+        // Buat form, kalau gamenya perlu input ID Server ga perlu dimasukin ke DB lagi
         Game::create([
             'type_id' => 1,
             'slug' => 'genshin-impact',
             'name' => 'Genshin Impact',
-            'description' => 'asdjhajkdhsjad',
+            'description' => '<p>
+            Hanya butuh beberapa detik saja untuk membeli Genesis Crystals untuk Genshin
+            Impact. Beli Primogems untuk "wish" atau supply bundles di dalam gift shop
+            pakai Genesis Crystals. Kami dipercaya oleh jutaan gamers & pengguna aplikasi
+            di Asia Tenggara termasuk di Indonesia. Caranya mudah, tanpa perlu registrasi
+            ataupun log-in!.
+          </p>
+          
+          <p><b>Tentang Genshin Impact:</b> <br>Jelajahi luasnya semesta penuh dengan petualangan dalam
+          game open-world terbaru dari HoYoverse. Masuklah ke Tevyat, dunia yang penuh
+          dengan kehidupan dan berbagai kekuatan. Kamu dan saudaramu sampai ke dunia ini
+          dari semesta lain. Terpisahkan oleh Dewa yang masih menjadi misteri, kekuatanmu
+          dirampas, dan dibuang ke dalam tidur yang sangat lelap, kemudian terbangun di
+          dalam dunia yang sangat berbeda. Lalu kamu memulai petualanganmu melewati Teyvat
+          untuk mencari jawaban dari Sang Ketujuh - Dewa dari segala elemen. Dalam
+          perjalanan, persiapkan diri untuk menyusuri setiap sudut dunia yang menakjubkan,
+          gabungkan kekuatan berbagai tipe karakter, dan ungkap misteri demi misteri
+          Teyvat untuk menjawab semuanya.</p>',
             'image' => 'Genshin.png',
-            'currency' => 'Genesis Crystals'
+            'currency' => 'Genesis Crystals',
+            'form' => 'ID Server'
         ]);
 
         Game::create([
             'type_id' => 2,
             'slug' => 'honkai-star-rail',
             'name' => 'Honkai: Star Rail',
-            'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'Stellar Jade'
+            'description' => '<p>
+            Hanya butuh beberapa detik saja untuk membeli Honkai: Star Rail Stellar Jades.
+            Di GameHub, top-up dijamin mudah, aman, dan praktis. Kami dipercaya oleh
+            jutaan gamers & pengguna aplikasi di Asia Tenggara termasuk di Indonesia.
+            Caranya mudah, tanpa perlu registrasi, ataupun log-in!
+          </p>
+          <p>
+            <b>Tentang Honkai: Star Rail:</b><br />
+            "Honkai: Star Rail" adalah game RPG Fantasi Luar Angkasa terbaru dari
+            HoYoverse Di game ini, pemain akan menaiki "Astral Express" dan menyaksikan
+            keindahan galaksi yang ajaib dan fantastis, serta melakukan petualangan yang
+            seru dan mendebarkan. Pemain akan bertemu dengan rekan-rekan baru dari
+            berbagai dunia dan juga wajah-wajah yang familier. Bersama dengan mereka,
+            pemain akan menyelesaikan masalah yang disebabkan oleh "Stellaron" serta
+            mengungkap misteri yang ada di baliknya! Semoga perjalanan ini membawa kita
+            menuju bintang-bintang!
+          </p>',
+            'image' => 'HonkaiStarRail.png',
+            'currency' => 'Stellar Jade',
+            'form' => 'Email'
         ]);
 
         Game::create([
             'type_id' => 1,
             'slug' => 'fifa-mobile',
             'name' => 'FIFA Mobile',
-            'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'Primo Gems'
+            'description' => '<p>
+            Hanya butuh beberapa detik saja untuk membeli FIFA Points FIFA Mobile. Di
+            GameHub, top-up dijamin mudah, aman, dan praktis. Kami dipercaya oleh jutaan
+            gamers & pengguna aplikasi di Asia Tenggara termasuk di Indonesia. Caranya
+            mudah, tanpa perlu registrasi, ataupun log-in!
+          </p>
+          <p>
+            <b>Tentang FIFA Mobile:</b><br />
+            EA SPORTS™ FIFA Mobile menghadirkan pengalaman terbaik untuk membangun tim
+            impian bersama bintang sepak bola favorit Anda dan memulai perjalanan Anda ke
+            berbagai liga.
+          </p>
+          <p>
+            Bergabunglah dengan dunia kami dimana Anda dapat menemukan lebih dari 15,000
+            pemain sepak bola otentik, ditambah 600+ tim.
+          </p>
+          <p>
+            © 2022 Electronic Arts Inc. EA, EA SPORTS, dan logo EA SPORTS adalah merek
+            dagang Electronic Arts Inc. Produk berlisensi resmi FIFA. © FIFA dan Logo
+            Produk Berlisensi Resmi FIFA adalah hak cipta dan/atau merek dagang FIFA.
+            Semua hak dilindungi undang-undang. Diproduksi di bawah lisensi dari
+            Electronic Arts Inc. Memerlukan FIFA Mobile (diunduh terpisah) & semua
+            pembaruan game. FIFA Mobile termasuk pembelian opsional dalam game (termasuk
+            item acak).
+          </p>
+          ',
+            'image' => 'FifaMobile.png',
+            'currency' => 'FIFA Points',
+            'form' => 'ID'
         ]);
 
         Game::create([
             'type_id' => 1,
             'slug' => 'free-fire',
             'name' => 'Free Fire',
-            'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'Diamonds'
+            'description' => '<p>
+            Tinggal selangkah lagi! Dengan membeli Diamond, Kamu bisa menikmati beragam
+            fitur dalam game, seperti membeli skin terbaru, item in-game premium, karakter
+            baru, event eksklusif, dan masih banyak lagi!
+          </p>
+          <p>
+            Mengapa memilih GameHub untuk top up Garena Free Fire (FF)? <br />
+            Mudah & cepat, Kamu hanya perlu hitungan detik untuk menyelesaikan pembelian
+            di GameHub. <br />Garansi sampai Diamond Free Fire dijamin langsung masuk ke
+            akun Kamu. <br />Metode pembayaran mudah, Bayar dengan metode pembayaran
+            terpopuler di Indonesia <br />Promo Menarik Jangan lewatkan deals terbaik,
+            giveaways, dan masih banyak lagi, hanya di GameHub!
+          </p>
+          ',
+            'image' => 'FreeFire.png',
+            'currency' => 'Diamonds',
+            'form' => 'ID'
         ]);
 
         Game::create([
@@ -117,7 +194,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Steam Wallet Code',
             'description' => 'asdjhajkdhsjad',
             'image' => 'Genshin.png',
-            'currency' => 'Wallet Code'
+            'currency' => 'Wallet Code',
+            'form' => 'Email'
         ]);
 
         Game::create([
@@ -155,11 +233,12 @@ class DatabaseSeeder extends Seeder
             'currency' => 'Diamonds'
         ]);
 
-        TopUp::create([
-            'game_id' => 1,
-            'nominal' => 10,
-            'price' => 10000
-        ]);
-        
+        TopUp::factory()->count(100)->create();
+
+        // TopUp::create([
+        //     'game_id' => 1,
+        //     'nominal' => 10,
+        //     'price' => 10000
+        // ]);
     }
 }

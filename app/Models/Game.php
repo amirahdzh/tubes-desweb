@@ -18,7 +18,8 @@ class Game extends Model
         'description',
         'image',
         'currency',
-        'form'
+        'form',
+        'image_cur'
     ];
 
     public function type()

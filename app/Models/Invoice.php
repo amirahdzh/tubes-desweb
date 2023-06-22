@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
+    use HasFactory;
     protected $fillable = ['invoice_no', 'topup_id', 'invoice_date', 'payment_method_id', 'payment_status'];
 
     public function topUp()
