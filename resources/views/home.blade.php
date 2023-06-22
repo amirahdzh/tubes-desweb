@@ -7,14 +7,11 @@
 
     <div class="row">
         @foreach($games as $game)
-        <div class="col-md-4">
+        <div class="col-md-2 d-flex align-items-stretch my-3">
             <div class="card">
-                <img src="{{ asset('path/to/images/'.$game->image) }}" class="card-img-top" alt="{{ $game->name }}">
+                <a href="{{ route('games.show', $game->slug) }}"><img src="{{ asset('img/'.$game->image) }}" class="card-img-top" alt="{{ $game->name }}"></a>
                 <div class="card-body">
-                    <h5 class="card-title">{{ $game->name }}</h5>
-                    <p class="card-text">{{ $game->description }}</p>
-                    <a href="{{ route('games.show', $game->slug) }}" class="btn btn-primary">View Details</a>
-                    <!-- Tambahkan informasi lainnya sesuai kebutuhan -->
+                    <h5 class="card-title text-center">{{ $game->name }}</h5>
                 </div>
             </div>
         </div>

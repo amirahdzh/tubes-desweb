@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GameHub | </title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 </head>
 
 <body>
@@ -15,7 +15,7 @@
   <div class="container">
     <!-- Header -->
     <div class="header">
-      <img src="{{ $game->image }}" alt="{{ $game->name }}" class="game-image">
+      <img src="{{ asset('img/'.$game->image) }}" alt="{{ $game->name }}" class="game-image">
       <h2 class="game-name">{{ $game->name }}</h2>
     </div>
 
@@ -26,35 +26,34 @@
           <div class="row mb-4">
             @yield('topup')
 
-          <!-- Deskripsi Game Container -->
-          <div class="row mb-4">
-            @yield('desc')
+            <!-- Deskripsi Game Container -->
+            <div class="row mb-4">
+              @yield('desc')
+            </div>
           </div>
-        </div>
 
-        <div class="col-lg-4">
-          <!-- Form Pembelian Container -->
-          <div class="row mb-4">
-            @yield('form')
+          <div class="col-lg-4">
+            <!-- Form Pembelian Container -->
+            <div class="row mb-4">
+              @yield('form')
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    {{-- @yield('container') --}}
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-  </script>
-  <script>
-    function selectTopUp(nominal, price) {
+      {{-- @yield('container') --}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+    <script>
+      function selectTopUp(nominal, price) {
         document.getElementById('selectedNominal').value = nominal;
         document.getElementById('selectedPrice').value = price;
         document.getElementById('summaryPrice').innerText = price.toLocaleString('en-ID');
         document.getElementById('summaryNominal').innerHTML = nominal + ' {{ $game->currency }}';
 
-    }
-</script>
+      }
+    </script>
 </body>
 
 </html>
