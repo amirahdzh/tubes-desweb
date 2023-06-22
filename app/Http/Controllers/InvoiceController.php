@@ -29,6 +29,7 @@ class InvoiceController extends Controller
             'invoice_date' => $invoiceDate,
         ]);
 
-        return view('invoice', compact('invoiceNo', 'nominal', 'price', 'paymentMethod', 'invoiceDate'));
+        $title = 'Invoice';
+        return view('invoice', compact('invoiceNo', 'nominal', 'price', 'paymentMethod', 'invoiceDate'))->with('title', $title);
     }
 }
