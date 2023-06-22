@@ -49,11 +49,14 @@
   </script>
   <script>
     function selectPaymentMethod(paymentMethod) {
-        document.getElementById('summaryPaymentMethod').textContent = paymentMethod;
+      document.getElementById('selectedPayment').value = paymentMethod;
+      document.getElementById('summaryPaymentMethod').innerText = paymentMethod;
     }
     function selectTopUp(nominal, price) {
-        document.getElementById('selectedNominal').value = nominal;
-        document.getElementById('selectedPrice').value = price;
+        // Set selected nominal and price
+    document.getElementById('selectedNominal').value = nominal;
+    document.getElementById('selectedPrice').value = price;
+    
         document.getElementById('summaryPrice').innerText = price.toLocaleString('en-ID');
         document.getElementById('summaryNominal').innerHTML = nominal + ' {{ $game->currency }}';
     }
@@ -68,24 +71,10 @@
         return true;
     }
 
-    function showInvoice(nominal, price, paymentMethod) {
-        var selectedNominal = document.getElementById('selectedNominal');
-        var selectedPrice = document.getElementById('selectedPrice');
-        var summaryNominal = document.getElementById('summaryNominal');
-        var summaryPrice = document.getElementById('summaryPrice');
-        var summaryPaymentMethod = document.getElementById('summaryPaymentMethod');
 
-        selectedNominal.value = nominal;
-        selectedPrice.value = price;
-        summaryNominal.innerText = nominal + ' {{ $game->currency }}';
-        summaryPrice.innerText = price;
-        summaryPaymentMethod.innerText = paymentMethod;
-
-        // Tampilkan invoice atau lakukan tindakan lain sesuai kebutuhan
-        // Misalnya, munculkan modal dengan detail invoice
-        // atau redirect pengguna ke halaman invoice
-    }
+    
   </script>
+
 </body>
 
 </html>

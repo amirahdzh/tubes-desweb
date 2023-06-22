@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 class CreateInvoicesTable extends Migration
 {
@@ -10,10 +11,10 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->string('invoice_no');
-            $table->foreignId('topup_id');
+            $table->string('invoice_no')->unique();
             $table->timestamp('invoice_date')->useCurrent();
-            $table->foreignId('payment_method_id');
+            $table->foreignId('payment_method_id')->nullable();
+            $table->foreignId('topup_id')->nullable();
             $table->enum('payment_status', ['Belum Dibayar', 'Sudah Dibayar'])->default('Belum Dibayar');
             $table->timestamps();
         });
