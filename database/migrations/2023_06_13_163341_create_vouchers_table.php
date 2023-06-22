@@ -10,9 +10,8 @@ class CreateVouchersTable extends Migration
     {
         Schema::create('vouchers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('topup_id');
-            $table->foreign('topup_id')->references('id')->on('top_ups');
-            $table->string('code');
+            $table->foreignId('topup_id');
+            $table->string('code')->nullable();
             $table->timestamps();
         });
     }

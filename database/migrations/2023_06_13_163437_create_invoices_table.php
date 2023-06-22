@@ -10,11 +10,11 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('transaction_id');
-            $table->foreign('transaction_id')->references('id')->on('transactions');
-            $table->date('invoice_date');
-            $table->decimal('total_amount', 8, 2);
-            $table->string('payment_status');
+            $table->string('invoice_no');
+            $table->foreignId('topup_id');
+            $table->timestamp('invoice_date')->useCurrent();
+            $table->foreignId('payment_method_id');
+            $table->enum('payment_status', ['Belum Dibayar', 'Sudah Dibayar'])->default('Belum Dibayar');
             $table->timestamps();
         });
     }

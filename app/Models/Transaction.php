@@ -6,20 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $fillable = ['topup_id', 'payment_amount', 'payment_method_id', 'transaction_time', 'voucher_id', 'voucher_code'];
+    protected $fillable = ['invoice_id'];
 
-    public function topup()
+    public function invoice()
     {
-        return $this->belongsTo(TopUp::class);
-    }
-
-    public function paymentMethod()
-    {
-        return $this->belongsTo(PaymentMethod::class);
-    }
-
-    public function voucher()
-    {
-        return $this->belongsTo(Voucher::class);
+        return $this->belongsTo(Invoice::class);
     }
 }

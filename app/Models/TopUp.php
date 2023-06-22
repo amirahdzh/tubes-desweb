@@ -12,4 +12,9 @@ class TopUp extends Model
     {
         return $this->belongsTo(Game::class);
     }
+
+    public function invoice()
+    {
+        return $this->hasMany(Invoice::class);
+    }
 }

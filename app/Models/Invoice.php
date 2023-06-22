@@ -6,10 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
-    protected $fillable = ['transaction_id', 'invoice_date', 'total_amount', 'payment_status'];
+    protected $fillable = ['invoice_no', 'topup_id', 'invoice_date', 'payment_method_id', 'payment_status'];
 
-    public function transaction()
+    public function topUp()
     {
-        return $this->belongsTo(Transaction::class);
+        return $this->belongsTo(TopUp::class);
+    }
+
+    public function paymentMethod()
+    {
+        return $this->belongsTo(TopUp::class);
     }
 }

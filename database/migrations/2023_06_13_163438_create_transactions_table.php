@@ -10,15 +10,8 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('topup_id');
-            $table->foreign('topup_id')->references('id')->on('top_ups');
-            $table->decimal('payment_amount', 8, 2);
-            $table->unsignedBigInteger('payment_method_id');
-            $table->foreign('payment_method_id')->references('id')->on('payment_methods');
-            $table->timestamp('transaction_time')->nullable();
-            $table->unsignedBigInteger('voucher_id')->nullable();
-            $table->foreign('voucher_id')->references('id')->on('vouchers');
-            $table->string('voucher_code')->nullable();
+            $table->foreignId('invoice_id');
+            $table->timestamp('transaction_date')->useCurrent();
             $table->timestamps();
         });
     }
