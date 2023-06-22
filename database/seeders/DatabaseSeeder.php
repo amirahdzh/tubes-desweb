@@ -57,7 +57,8 @@ class DatabaseSeeder extends Seeder
           Teyvat untuk menjawab semuanya.</p>',
             'image' => 'Genshin.png',
             'currency' => 'Genesis Crystals',
-            'form' => 'ID Server'
+            'form' => 'ID Server',
+            'image_cur' => 'genshin_gs.png'
         ]);
 
         Game::create([
@@ -83,7 +84,8 @@ class DatabaseSeeder extends Seeder
           </p>',
             'image' => 'HonkaiStarRail.png',
             'currency' => 'Stellar Jade',
-            'form' => 'Email'
+            'form' => 'Email',
+            'image_cur' => 'hsr_jade.png'
         ]);
 
         Game::create([
@@ -118,7 +120,8 @@ class DatabaseSeeder extends Seeder
           ',
             'image' => 'FifaMobile.png',
             'currency' => 'FIFA Points',
-            'form' => 'ID'
+            'form' => 'ID',
+            'image_cur' => 'fifa_points.png'
         ]);
 
         Game::create([
@@ -141,7 +144,8 @@ class DatabaseSeeder extends Seeder
           ',
             'image' => 'FreeFire.png',
             'currency' => 'Diamonds',
-            'form' => 'ID'
+            'form' => 'ID',
+            'image_cur' => 'freefire_diamonds.png'
         ]);
 
         Game::create([
@@ -149,8 +153,9 @@ class DatabaseSeeder extends Seeder
             'slug' => 'mobile-legends',
             'name' => 'Mobile Legends',
             'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'Primo Gems'
+            'image' => 'MLBB.png',
+            'currency' => 'Diamonds',
+            'image_cur' => 'ml_diamond.png'
         ]);
 
         Game::create([
@@ -158,8 +163,9 @@ class DatabaseSeeder extends Seeder
             'slug' => 'valorant',
             'name' => 'Valorant',
             'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'Points'
+            'image' => 'Valo.png',
+            'currency' => 'Points',
+            'image_cur' => 'valo_points.png'
         ]);
 
         Game::create([
@@ -167,8 +173,9 @@ class DatabaseSeeder extends Seeder
             'slug' => 'super-sus',
             'name' => 'Super Sus',
             'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'Goldstars'
+            'image' => 'Supersus.png',
+            'currency' => 'Goldstars',
+            'image_cur' => 'supersus_goldstars.png'
         ]);
 
         Game::create([
@@ -176,8 +183,9 @@ class DatabaseSeeder extends Seeder
             'slug' => 'league-of-legends-wild-rift',
             'name' => 'League of Legends: Wild Rift',
             'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'Wild Cores'
+            'image' => 'LoL.png',
+            'currency' => 'Wild Cores',
+            'image_cur' => 'lol_wc.png'
         ]);
 
         Game::create([
@@ -185,8 +193,9 @@ class DatabaseSeeder extends Seeder
             'slug' => 'call-of-duty-mobile',
             'name' => 'Call of Duty: Mobile',
             'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'CP'
+            'image' => 'CODM.png',
+            'currency' => 'CP',
+            'image_cur' => 'codm_cp.png'
         ]);
 
         Game::create([
@@ -194,9 +203,10 @@ class DatabaseSeeder extends Seeder
             'slug' => 'steam-wallet-code-indonesia',
             'name' => 'Steam Wallet Code',
             'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
+            'image' => 'SteamWallet.png',
             'currency' => 'Wallet Code',
-            'form' => 'Email'
+            'form' => 'Email',
+            'image_cur' => 'money.png'
         ]);
 
         Game::create([
@@ -204,8 +214,9 @@ class DatabaseSeeder extends Seeder
             'slug' => 'state-of-survival',
             'name' => 'State of Survival',
             'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'Diamonds'
+            'image' => 'StateofSurvival.png',
+            'currency' => 'Diamonds',
+            'image_cur' => 'sos_diamonds.png'
         ]);
 
         Game::create([
@@ -213,16 +224,18 @@ class DatabaseSeeder extends Seeder
             'slug' => 'honkai-impact-3',
             'name' => 'Honkai Impact 3',
             'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'Crystals'
+            'image' => 'Honkai.png',
+            'currency' => 'Crystals',
+            'image_cur' => 'honkai_crystals.png'
         ]);
         Game::create([
             'type_id' => 1,
             'slug' => 'point-blank',
             'name' => 'Point Blank',
             'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'PB Cash'
+            'image' => 'PB.png',
+            'currency' => 'PB Cash',
+            'image_cur' => 'pb_cash.png'
         ]);
 
         Game::create([
@@ -230,18 +243,30 @@ class DatabaseSeeder extends Seeder
             'slug' => 'astral-guardians-cyber-fantasy',
             'name' => 'Astral Guardians: Cyber Fantasy',
             'description' => 'asdjhajkdhsjad',
-            'image' => 'Genshin.png',
-            'currency' => 'Diamonds'
+            'image' => 'AstralGuardians.png',
+            'currency' => 'Diamonds',
+            'image_cur' => 'diamonds.png'
         ]);
 
         PaymentMethod::create([
-          'name' => 'ShopeePay'
+          'name' => 'ShopeePay',
+          'image' => 'shopee.png'
         ]);
 
         PaymentMethod::create([
-          'name' => 'Gopay'
+          'name' => 'Gopay',
+          'image' => 'gopay.png'
         ]);
 
+        PaymentMethod::create([
+          'name' => 'DANA',
+          'image' => 'dana.png'
+        ]);
+
+        PaymentMethod::create([
+          'name' => 'OVO',
+          'image' => 'ovo.png'
+        ]);
 
         TopUp::factory()->count(100)->create();
 
