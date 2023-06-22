@@ -57,7 +57,7 @@
         @csrf
         <div class="mb-3">
             <label for="id" class="form-label">ID</label>
-            <input type="text" class="form-control" id="id" name="id">
+            <input type="text" class="form-control" id="id" name="id" required>
         </div>
         <input type="hidden" id="selectedNominal" name="selectedNominal">
         <input type="hidden" id="selectedPrice" name="selectedPrice">
