@@ -34,7 +34,7 @@
 @section('form')
 <div class="col">
     <!-- Form content -->
-    <form action="{{ route('invoice', ['slug' => $game->slug, 'token' => Str::random(8)]) }}" method="POST" onsubmit="return validateForm()">
+    <form action="{{ route('invoice', ['slug' => $game->slug, 'token' => Str::random(8), 'gameForm' => $game->form]) }}" method="POST" onsubmit="return validateForm()">
         @csrf
         @if ($game->form === "ID Server")
         <div class="mb-3">
@@ -77,6 +77,7 @@
         <input type="hidden" id="selectedNominal" name="selectedNominal">
         <input type="hidden" id="selectedPrice" name="selectedPrice">
         <input type="hidden" id="selectedPayment" name="selectedPayment">
+        {{-- <input type="hidden" name="gameForm" value="{{ $game->form }}"> --}}
         <div>
             <p><span id="summaryNominal">0 {{ $game->currency }}</span></p>
             <p>Rp. <span id="summaryPrice">0</span></p>

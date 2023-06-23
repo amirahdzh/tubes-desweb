@@ -12,6 +12,12 @@ class InvoiceController extends Controller
 {
     public function show(Request $request)
     {
+        $gameForm = $request->input('gameForm');
+        session()->put('gameForm', $gameForm);
+
+        // Retrieve game data
+        $game = Game::find($request->input('game_id'));
+
         // Generate invoice number
         $invoiceNo = 'INV-' . Str::random(8);
 
@@ -31,7 +37,7 @@ class InvoiceController extends Controller
         ]);
 
         $title = 'Invoice';
-        return view('invoice', compact('invoiceNo', 'nominal', 'price', 'paymentMethod', 'invoiceDate'))->with('title', $title);
+        return view('invoice', compact('invoiceNo', 'nominal', 'price', 'paymentMethod', 'invoiceDate', 'gameForm'))->with('title', $title);
     }
 
     public function markAsPaid(Request $request, $invoiceNo)
@@ -40,6 +46,8 @@ class InvoiceController extends Controller
         DB::table('invoices')
             ->where('invoice_no', $invoiceNo)
             ->update(['payment_status' => 'Sudah Dibayar']);
+
+        $gameForm = session()->get('gameForm');
 
         // Retrieve updated invoice data
         $invoiceData = DB::table('invoices')
@@ -61,7 +69,9 @@ class InvoiceController extends Controller
             ->first();
 
         $title = 'Receipt';
+        $voucher = Str::random(9);
+        $voucherFormat = implode('-', str_split($voucher, 3));
 
-        return view('receipt', compact('transactionData', 'invoiceData'))->with('title', $title);
+        return view('receipt', compact('transactionData', 'invoiceData', 'gameForm', 'voucherFormat'))->with('title', $title);
     }
 }

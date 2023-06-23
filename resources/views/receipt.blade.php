@@ -10,12 +10,14 @@
                 </div>
                 <h1>Transaksi Berhasil!</h1>
                 <div class="col-auto">
+                    @if($gameForm === 'Email')
                     <div class="container border border-secondary rounded-3 w-100 text-center py-3 my-3 px-3">
                         <div text-center>
                             <strong>Kode Voucher:</strong>
-                            <h2>XXXX-XXXX-XXXX</h2>
+                            <h2>{{ $voucherFormat }}</h2>
                         </div>
                     </div>
+                    @endif
                     <table class="table table-borderless">
                         <tbody>
                             <tr>
